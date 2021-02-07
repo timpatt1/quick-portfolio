@@ -2,15 +2,16 @@
 
 ---
 
-### [Project 1 Title](/sample_page)
+### [Project 1 Title](/project_probation/index)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-### [Parks and Trails in Manhattan](/pdf/sample_presentation.pdf)
-<img src= "Lab4_Part3.jpg"/>
+### [Parks and Trails in Manhattan](/Projects/index)
+This is a map that shows the trails and parks of Manhattan.
+<img src= "Projects/Lab4_Part3.jpg"/>
 
 ---
-### [Project 3 Title](http://example.com/)
+### [Project 3 Title](/project_probation/index)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
