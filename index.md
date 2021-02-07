@@ -7,7 +7,7 @@
 
 ---
 ### [Parks and Trails in Manhattan](/pdf/sample_presentation.pdf)
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+<Lab4_Part3.jpg"/>
 
 ---
 ### [Project 3 Title](http://example.com/)
