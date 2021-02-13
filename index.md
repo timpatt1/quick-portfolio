@@ -2,17 +2,17 @@
 
 ---
 
-### [Bedrock Elevation in Antartica](/Projects/index)
+### [Bedrock Elevation in Antartica](/project_bedrock/index)
 This is a map displaying the bedrock elevation in Antartica as well as showing areas below and avove Sea Level.
 <img src="Projects/Patterson_Lab10.PNG"/>
 
 ---
-### [Parks and Trails in Manhattan](/Projects/index)
+### [Parks and Trails in Manhattan](/project_parks/index)
 This is a map that shows the trails and parks of Manhattan.
 <img src= "Projects/Lab4_Part3.jpg"/>
 
 ---
-### [Tree Cover Comparison to Occupied Homes in Baltimore City (2010)](/Projects/index)
+### [Tree Cover Comparison to Occupied Homes in Baltimore City (2010)](/project_treecover/index)
 This map displays a comparison of tree cover to occupied homes of Baltimre City in 2010.
 <img src="Projects/3rdVariable.jpg"/>
 
