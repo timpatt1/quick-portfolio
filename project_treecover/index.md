@@ -13,7 +13,4 @@ When comparing the two variables side by side I think it is clear that the areas
 
 
 ## Images
-
-Image 1. 
-
-Image 2.
+< img search: project_treecover/tree_cover.jpg>
