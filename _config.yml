@@ -6,6 +6,13 @@ description: > # your text below (remove <br> elements if you don't need line br
  <strong>Mapping Capital</strong>: how the flows of (more than) capital produce and are produced by uneven geographies.
  <br><br>
  <a href="https://www.linkedin.com/in/timothy-patterson-673b671a8/">View My LinkedIn Profile</a> 
-  
+ style>
+    mark {
+        background-color: #93F9C1;
+        color: #168749;
+    }
+</style>
+
+Some ==green== text
 theme: jekyll-theme-minimal
 google_analytics: UA-000000-0 # your Google Analytics tracking ID here
