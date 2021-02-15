@@ -1,6 +1,10 @@
-## Project 1: [Bedrock Elevation](/project/bedrock/index.md)
+## Project 1: [Bedrock Elevation](/project_bedrock/index.md)
 <img src = "https://github.com/timpatt1/timpatt1.github.io/blob/master/Projects/Patterson_Lab10.PNG">
-**Project description:** Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+**Project description:** 
+This project goal was to display the bedrock elevation of Antartica, using a color ramp to diplay the elavtions from -6887 feet up to the maximum elevation of 4364 feet. At the same the map represents the areas of elevation that lie below as well as above Seal Level. 
+
+
+On each project page, describe the project, what tools you used to make it, and what the map tells us
 
 ### 3. Support the selection of appropriate statistical tools and techniques
 
