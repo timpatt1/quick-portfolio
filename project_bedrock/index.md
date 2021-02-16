@@ -1,6 +1,6 @@
 ## Project 1: Bedrock Elevation
 
-<img src = "(/project_bedrock/index.md)">
+<img src = "(/project_bedrock/bedrock.jpg)">
 
 **Project description:** 
 This project goal was to display the bedrock elevation of Antartica, using a color ramp to diplay the elavtions from -6887 feet up to the maximum elevation of 4364 feet. At the same the map represents the areas of elevation that lie below as well as above Seal Level. 
