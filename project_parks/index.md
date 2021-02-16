@@ -1,5 +1,5 @@
 ## Project 2: Parks in Manhattan
-<img src = "project_parks/Parks.jpg">
+<img src = "/project_parks/Parks.jpg">
 
 ## Project description:
 This project explores the relationship between urban tree canopy in Baltimore City and socioeconomic, demographic dimensions. At the same time identifying an additional factor in order to conduct a spatial analysis that ties together Baltimore City’s tree canopy cover change dataset. The two building block datasets that I will be using for this lab is the set of neighborhood statistical areas for Baltimore City from the BNIA ArcGIS online site, as well as Baltimore City’s Tree canopy change from 2007-2015.
