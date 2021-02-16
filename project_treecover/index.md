@@ -1,6 +1,6 @@
 ---
-title: Tree Cover
-author: Tim Patterson
+Title: Tree Cover
+Author: Tim Patterson
 ---
 <img src="/project_treecover/tree_cover.jpg"/>
 
