@@ -1,6 +1,6 @@
 ---
 title: Tree Cover
-author: Dillon Mahmoudi
+author: Tim Patterson
 ---
 
 ## Project description:
@@ -13,4 +13,4 @@ When comparing the two variables side by side I think it is clear that the areas
 
 
 ## Images
-<img src="project_treecover/tree_cover.jpg"/>
+<img src="/project_treecover/tree_cover.jpg"/>
