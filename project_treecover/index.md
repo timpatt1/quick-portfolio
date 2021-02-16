@@ -2,6 +2,7 @@
 title: Tree Cover
 author: Tim Patterson
 ---
+<img src="/project_treecover/tree_cover.jpg"/>
 
 ## Project description:
 This project explores the relationship between urban tree canopy in Baltimore City and socioeconomic, demographic dimensions. At the same time identifying an additional factor in order to conduct a spatial analysis that ties together Baltimore City’s tree canopy cover change dataset. The two building block datasets that I will be using for this lab is the set of neighborhood statistical areas for Baltimore City from the BNIA ArcGIS online site, as well as Baltimore City’s Tree canopy change from 2007-2015.
@@ -11,6 +12,3 @@ After downloading the Baltimore city neighborhoods shapefile from the BNIAs webs
 When comparing the two variables side by side I think it is clear that the areas with a higher percentage of vacant properties have little to no gain in tree cover through this time. If you zoom in, this can be observed in the central part of the town. Additionally, when comparing tree canopy to the Occupied housing it is evident that there is a correlation between occupied properties to tree cover. If you focus on the North Eastern/Western parts of town it can clearly be seen this very close relation of tree cover to occupied homes in the city of Baltimore.
 
 
-
-## Images
-<img src="/project_treecover/tree_cover.jpg"/>
