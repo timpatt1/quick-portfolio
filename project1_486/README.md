@@ -16,3 +16,10 @@ Document what your proposal is for the first project: pick a topic of your choic
   
 - What **outputs** will you be creating and how are they directly connected to the class?
   I would like to constuct a map that seperates the layers of sea level rise, buildins constuction, as well as breakin that data into years in order to compare the effects of recent constrcution in Annapolis. 
+
+
+UPDATE: was not able to find building data for post 2013 (When city dock was improved) so am now focusing on the areas and buildings most effected by sea level rise. 
+https://www.annapolis.gov/DocumentCenter/View/3307/Subwatersheds-Boundaries
+https://www.annapolis.gov/DocumentCenter/View/3309/City-Buildings-Outlines-2011
+https://www.annapolis.gov/DocumentCenter/View/3306/Centerline_2013
+[https://coast.noaa.gov/htdata/Inundation/SLR/SLRdata/MD/MD_West_slr_data_dist.zip
