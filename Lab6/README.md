@@ -24,5 +24,6 @@ As mentioned before in my analysis I was prepararing to show change over time. T
 # Results
 With these two data sets I created a Bivariate choropleth map within QGIS. This bivariate choropleth map doesn’t just show two variables at once but it also shows a relationship between these two variables – do they agree or disagree, do they increase/decrease proportionally. The bivariate choropleth map I created is a univariate choropleth with 3 categories each has 9 categories. The first category displays the total difference of Median Household Income in Baltimore from 2014-2019 over suare miles. The second category is the difference of Number of Households Living Alone to the Total number of Households from 2014-2019.
 
+![Patterson_Lab6](https://user-images.githubusercontent.com/78392092/113941369-f9807500-97cc-11eb-94bf-209c3ace0a20.png)
 
 [Patterson_Lab6.pdf](https://github.com/timpatt1/timpatt1.github.io/files/6274816/Patterson_Lab6.pdf)
