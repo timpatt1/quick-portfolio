@@ -24,7 +24,7 @@ library(ggplot2)
 # settings for tidycensus
 options(tigris_class = "sf")
 options(tigris_use_cache = TRUE)
-# census_api_key("7da13c910d6b0d231eff70a1168b636ee281edd3", install=TRUE)
+# census_api_key("yourkeyhere", install=TRUE)
 
 setwd("C:/Users/vival/Documents/GES 486/Lab6")
 ```
