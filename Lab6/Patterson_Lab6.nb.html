@@ -249,12 +249,54 @@ setwd(&quot;C:/Users/vival/Documents/GES 486/Lab6&quot;)</code></pre>
 <p>Then we use the <code>get_acs</code> command to get data from the Census specifying which population and housing variables we want to get. Here’s the Data Dictionary from Social Explorer. (<a href="https://www.socialexplorer.com/data/ACS2019_5yr/metadata/?ds=ACS19_5yr" class="uri">https://www.socialexplorer.com/data/ACS2019_5yr/metadata/?ds=ACS19_5yr</a>)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUoYm1vcmVfaG91c2Vob2xkXzIwMTQsIFwiYm1vcmVfaG91c2Vob2xkXzIwMTQuY3N2XCIpICMgZ2VvbWV0cnkgaXMgZmFsc2UhXG5cbmBgYCJ9 -->
-<pre class="r"><code>st_write(bmore_household_2014, &quot;bmore_household_2014.csv&quot;) # geometry is false!
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUaGlzIGdldHMgVG90YWwgSG91c2Vob2xkcywgTGl2aW5nIEFsb25lLCBhbmQgTUhISSBpbiAyMDE5XG5ibW9yZV9ob3VzZWhvbGRfMjAxOSA8LSBnZXRfYWNzKGdlb2dyYXBoeSA9IFwidHJhY3RcIiwgXG4gICAgIHZhcmlhYmxlcyA9IGMoXCJ0b3RhbF9ob3VzZWhvbGQxOVwiID0gXCJCMTEwMDFfMDAxXCIsICMgVG90YWwgaG91c2Vob2xkc1xuICAgICAgICAgICAgICAgICAgIFwiaG91c2VfYWxvbmUxOVwiID0gXCJCMTEwMDFfMDA4XCIsICMgSG91c2Vob2xkZXIgTGl2aW5nIGFsb25lXG4gICAgICAgICAgICAgICAgICAgXCJtZWRfaGhfaW5jMTlcIiA9IFwiQjE5MDEzXzAwMVwiICMgTWVkaWFuIGhvdXNlaG9sZCBpbmNvbWVcbiAgICAgICAgICAgICAgICAgICApLCBcbiAgICAgeWVhciA9IDIwMTksXG4gICAgIHN1cnZleSA9IFwiYWNzNVwiLFxuICAgICBzdGF0ZSA9IGMoMjQpLCBcbiAgICAgY291bnR5ID0gYyg1MTAsNSksIFxuICAgICBnZW9tZXRyeSA9IFRSVUUsICMgZG93bmxvYWQgdGhlIHNoYXBlZmlsZSB3aXRoIHRoZSBkYXRhXG4gICAgIG91dHB1dCA9IFwid2lkZVwiKSAjIG5lZWQgdGhpc1xuYGBgIn0= -->
+<pre class="r"><code># This gets Total Households, Living Alone, and MHHI in 2019
+bmore_household_2019 &lt;- get_acs(geography = &quot;tract&quot;, 
+     variables = c(&quot;total_household19&quot; = &quot;B11001_001&quot;, # Total households
+                   &quot;house_alone19&quot; = &quot;B11001_008&quot;, # Householder Living alone
+                   &quot;med_hh_inc19&quot; = &quot;B19013_001&quot; # Median household income
+                   ), 
+     year = 2019,
+     survey = &quot;acs5&quot;,
+     state = c(24), 
+     county = c(510,5), 
+     geometry = TRUE, # download the shapefile with the data
+     output = &quot;wide&quot;) # need this</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgYm1vcmVfaG91c2Vob2xkXzIwMTQnIHRvIGRhdGEgc291cmNlIGBibW9yZV9ob3VzZWhvbGRfMjAxNC5jc3YnIHVzaW5nIGRyaXZlciBgQ1NWJ1xuV3JpdGluZyA0MTQgZmVhdHVyZXMgd2l0aCA4IGZpZWxkcyB3aXRob3V0IGdlb21ldHJpZXMuXG4ifQ== -->
-<pre><code>Writing layer `bmore_household_2014&#39; to data source `bmore_household_2014.csv&#39; using driver `CSV&#39;
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTUtMjAxOSA1LXllYXIgQUNTXG4ifQ== -->
+<pre><code>Getting data from the 2015-2019 5-year ACS</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBUaGlzIGdldHMgVG90YWwgSG91c2Vob2xkcywgTGl2aW5nIEFsb25lLCBhbmQgTUhISSBpbiAyMDE0XG5ibW9yZV9ob3VzZWhvbGRfMjAxNCA8LSBnZXRfYWNzKGdlb2dyYXBoeSA9IFwidHJhY3RcIiwgXG4gICAgIHZhcmlhYmxlcyA9IGMoXCJ0b3RhbF9ob3VzZWhvbGQxNFwiID0gXCJCMTEwMDFfMDAxXCIsICMgVG90YWwgaG91c2Vob2xkc1xuICAgICAgICAgICAgICAgICAgIFwiaG91c2VfYWxvbmUxNFwiID0gXCJCMTEwMDFfMDA4XCIsICMgSG91c2Vob2xkZXIgTGl2aW5nIGFsb25lXG4gICAgICAgICAgICAgICAgICAgXCJtZWRfaGhfaW5jMTRcIiA9IFwiQjE5MDEzXzAwMVwiICMgTWVkaWFuIGhvdXNlaG9sZCBpbmNvbWVcbiAgICAgICAgICAgICAgICAgICApLCBcbiAgICAgeWVhciA9IDIwMTQsXG4gICAgIHN1cnZleSA9IFwiYWNzNVwiLFxuICAgICBzdGF0ZSA9IGMoMjQpLCBcbiAgICAgY291bnR5ID0gYyg1MTAsNSksIFxuICAgICBnZW9tZXRyeSA9IEZBTFNFLCAjIGRvd25sb2FkIHRoZSBzaGFwZWZpbGUgd2l0aCB0aGUgZGF0YVxuICAgICBvdXRwdXQgPSBcIndpZGVcIikgIyBuZWVkIHRoaXNcbmBgYCJ9 -->
+<pre class="r"><code># This gets Total Households, Living Alone, and MHHI in 2014
+bmore_household_2014 &lt;- get_acs(geography = &quot;tract&quot;, 
+     variables = c(&quot;total_household14&quot; = &quot;B11001_001&quot;, # Total households
+                   &quot;house_alone14&quot; = &quot;B11001_008&quot;, # Householder Living alone
+                   &quot;med_hh_inc14&quot; = &quot;B19013_001&quot; # Median household income
+                   ), 
+     year = 2014,
+     survey = &quot;acs5&quot;,
+     state = c(24), 
+     county = c(510,5), 
+     geometry = FALSE, # download the shapefile with the data
+     output = &quot;wide&quot;) # need this</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiR2V0dGluZyBkYXRhIGZyb20gdGhlIDIwMTAtMjAxNCA1LXllYXIgQUNTXG4ifQ== -->
+<pre><code>Getting data from the 2010-2014 5-year ACS</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBXZSBub3cgaGF2ZSByYXcgZGF0YSB0aGF0IHdlIHNob3VsZCB3cml0ZSBvdXQgdG8gZmlsZVxuIyBCZWNhdXNlIHdlJ3JlIGdvaW5nIHRvIHNhdmUgaW4gZ2VvanNvbiwgd2UncmUgZ29pbmcgdG8gdHJhbnNmb3JtIHRvIDM4NTdcbnN0X3dyaXRlKHN0X3RyYW5zZm9ybShibW9yZV9ob3VzZWhvbGRfMjAxOSwgMzg1NyksIFwiYm1vcmVfaG91c2Vob2xkc18yMDE5MS5nZW9qc29uXCIpXG5gYGAifQ== -->
+<pre class="r"><code># We now have raw data that we should write out to file
+# Because we&#39;re going to save in geojson, we&#39;re going to transform to 3857
+st_write(st_transform(bmore_household_2019, 3857), &quot;bmore_households_20191.geojson&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgYm1vcmVfaG91c2Vob2xkc18yMDE5MScgdG8gZGF0YSBzb3VyY2UgYGJtb3JlX2hvdXNlaG9sZHNfMjAxOTEuZ2VvanNvbicgdXNpbmcgZHJpdmVyIGBHZW9KU09OJ1xuV3JpdGluZyA0MTQgZmVhdHVyZXMgd2l0aCA4IGZpZWxkcyBhbmQgZ2VvbWV0cnkgdHlwZSBNdWx0aSBQb2x5Z29uLlxuIn0= -->
+<pre><code>Writing layer `bmore_households_20191&#39; to data source `bmore_households_20191.geojson&#39; using driver `GeoJSON&#39;
+Writing 414 features with 8 fields and geometry type Multi Polygon.</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUoYm1vcmVfaG91c2Vob2xkXzIwMTQsIFwiYm1vcmVfaG91c2Vob2xkc18yMDE0LmNzdlwiKSAjIGdlb21ldHJ5IGlzIGZhbHNlIVxuYGBgIn0= -->
+<pre class="r"><code>st_write(bmore_household_2014, &quot;bmore_households_2014.csv&quot;) # geometry is false!</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgYm1vcmVfaG91c2Vob2xkc18yMDE0JyB0byBkYXRhIHNvdXJjZSBgYm1vcmVfaG91c2Vob2xkc18yMDE0LmNzdicgdXNpbmcgZHJpdmVyIGBDU1YnXG5Xcml0aW5nIDQxNCBmZWF0dXJlcyB3aXRoIDggZmllbGRzIHdpdGhvdXQgZ2VvbWV0cmllcy5cbiJ9 -->
+<pre><code>Writing layer `bmore_households_2014&#39; to data source `bmore_households_2014.csv&#39; using driver `CSV&#39;
 Writing 414 features with 8 fields without geometries.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -264,15 +306,21 @@ Writing 414 features with 8 fields without geometries.</code></pre>
 <h2>Merge the two time periods</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBDb21wdXRlIGRpZmZlcmVuY2UgaW4gbWVkaWFuIGhvdXNlaG9sZCBpbmNvbWVcbmJtb3JlX2hoX2luY29tZSRtaGhpX2RpZmYgPC0gYm1vcmVfaGhfaW5jb21lJG1lZF9oaF9pbmMxOUUgLVxuICAgICAgICBibW9yZV9oaF9pbmNvbWUkbWVkX2hoX2luYzE0RVxuXG5gYGAifQ== -->
-<pre class="r"><code># Compute difference in median household income
-bmore_hh_income$mhhi_diff &lt;- bmore_hh_income$med_hh_inc19E -
-        bmore_hh_income$med_hh_inc14E
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm1vcmVfaG91c2Vob2xkIDwtIGxlZnRfam9pbihibW9yZV9ob3VzZWhvbGRfMjAxOSwgYm1vcmVfaG91c2Vob2xkXzIwMTQsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYnk9XCJHRU9JRFwiKVxuXG4jIENvbXB1dGUgZGlmZmVyZW5jZXMgaW4gaG91c2Vob2xkc1xuYm1vcmVfaG91c2Vob2xkJGhvdXNlX2RpZmYgPC0gYm1vcmVfaG91c2Vob2xkJGhvdXNlX2Fsb25lMTlFIC1cbiAgICAgICAgYm1vcmVfaG91c2Vob2xkJGhvdXNlX2Fsb25lMTRFXG5cbiMgQ29tcHV0ZSBkaWZmZXJlbmNlIGluIG1lZGlhbiBob3VzZWhvbGQgaW5jb21lXG5ibW9yZV9ob3VzZWhvbGQkbWhoaV9kaWZmIDwtIGJtb3JlX2hvdXNlaG9sZCRtZWRfaGhfaW5jMTlFIC1cbiAgICAgICAgYm1vcmVfaG91c2Vob2xkJG1lZF9oaF9pbmMxNEVcblxuXG5ibW9yZV9ob3VzZWhvbGQgPC0gc3RfdHJhbnNmb3JtKGJtb3JlX2hvdXNlaG9sZCwgMzg1NykgIyByZXByb2plY3QgaW50byB3ZWItbWVyY2F0b3IgYmVjYXVzZSBHb29nbGUgb3ducyBldmVyeXRoaW5nICAgICAgICBcbmBgYCJ9 -->
+<pre class="r"><code>bmore_household &lt;- left_join(bmore_household_2019, bmore_household_2014, 
+                              by=&quot;GEOID&quot;)
+
+# Compute differences in households
+bmore_household$house_diff &lt;- bmore_household$house_alone19E -
+        bmore_household$house_alone14E
+
+# Compute difference in median household income
+bmore_household$mhhi_diff &lt;- bmore_household$med_hh_inc19E -
+        bmore_household$med_hh_inc14E
+
+
+bmore_household &lt;- st_transform(bmore_household, 3857) # reproject into web-mercator because Google owns everything        </code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiRXJyb3I6IG9iamVjdCAnYm1vcmVfaGhfaW5jb21lJyBub3QgZm91bmRcbiJ9 -->
-<pre><code>Error: object &#39;bmore_hh_income&#39; not found</code></pre>
-<!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 </div>
@@ -281,12 +329,11 @@ bmore_hh_income$mhhi_diff &lt;- bmore_hh_income$med_hh_inc19E -
 <p>Here I’m going to use ggplot. Now that I specified the CRS (projection)</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUoYm1vcmVfaG91c2Vob2xkLCBcImJtb3JlX2hvdXNlaG9sZF9kaWZmLmdlb2pzb25cIilcblxuYGBgIn0= -->
-<pre class="r"><code>st_write(bmore_household, &quot;bmore_household_diff.geojson&quot;)
-</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc3Rfd3JpdGUoYm1vcmVfaG91c2Vob2xkLCBcImJtb3JlX2hvdXNlaG9sZHNfZGlmZi5nZW9qc29uXCIpXG5gYGAifQ== -->
+<pre class="r"><code>st_write(bmore_household, &quot;bmore_households_diff.geojson&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgYm1vcmVfaG91c2Vob2xkX2RpZmYnIHRvIGRhdGEgc291cmNlIGBibW9yZV9ob3VzZWhvbGRfZGlmZi5nZW9qc29uJyB1c2luZyBkcml2ZXIgYEdlb0pTT04nXG5Xcml0aW5nIDQxNCBmZWF0dXJlcyB3aXRoIDE3IGZpZWxkcyBhbmQgZ2VvbWV0cnkgdHlwZSBNdWx0aSBQb2x5Z29uLlxuIn0= -->
-<pre><code>Writing layer `bmore_household_diff&#39; to data source `bmore_household_diff.geojson&#39; using driver `GeoJSON&#39;
+<!-- rnb-output-begin eyJkYXRhIjoiV3JpdGluZyBsYXllciBgYm1vcmVfaG91c2Vob2xkc19kaWZmJyB0byBkYXRhIHNvdXJjZSBgYm1vcmVfaG91c2Vob2xkc19kaWZmLmdlb2pzb24nIHVzaW5nIGRyaXZlciBgR2VvSlNPTidcbldyaXRpbmcgNDE0IGZlYXR1cmVzIHdpdGggMTcgZmllbGRzIGFuZCBnZW9tZXRyeSB0eXBlIE11bHRpIFBvbHlnb24uXG4ifQ== -->
+<pre><code>Writing layer `bmore_households_diff&#39; to data source `bmore_households_diff.geojson&#39; using driver `GeoJSON&#39;
 Writing 414 features with 17 fields and geometry type Multi Polygon.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
@@ -295,7 +342,7 @@ Writing 414 features with 17 fields and geometry type Multi Polygon.</code></pre
 </div>
 </div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpzdWJ0aXRsZTogQ2Vuc3VzIERpZmZlcmVuY2VzIEdFUyA0ODYNCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KaHRtbF9kb2N1bWVudDoNCiAgICAgICAgICAgICAgICBrZWVwX21kOiB0cnVlDQphdXRob3I6IFRpbSBQYXR0ZXJzb24gKHRpbXBhdHQxQHVtYmMuZWR1KQ0KZGF0ZTogICAyMDIxLzA0LzAxDQotLS0NCg0KIyBDZW5zdXMgRGVtbw0KVGhpcyBmaWxlIA0KDQojIyBTZXR1cA0KRmlyc3QsIHdlIGxvYWQgaW4gdGhlIHZhcmlvdXMgcGFja2FnZXMgd2UgbmVlZC4gSSd2ZSBhZGRlZCBgbWFwdmlld2AgaGVyZSBpbnN0ZWFkIG9mIGBnZ3Bsb3RgIGJlY2F1c2UgaXQgYWxsb3dzIGZvciBlYXNpZXIgaW50ZXJhY3Rpb25zIHdpdGggYHNmYC4gVGhpcyBjaHVuayBvZiBjb2RlIGFsc28gc2V0cyBzb21lIGRlZmF1bHRzIGZvciB0aGUgYHRpZHljZW5zdXNgIHBhY2thZ2UuIFRvIHVzZSB0aGlzIHNjcmlwdCwgeW91J2xsIG5lZWQgdG8gc2lnbiB1cCBmb3IgeW91ciBvd24gY2Vuc3VzIGFwaSBrZXkuIChodHRwczovL2FwaS5jZW5zdXMuZ292L2RhdGEva2V5X3NpZ251cC5odG1sKQ0KDQpgYGB7ciBzZXR1cH0NCiMgcGFja2FnZXMNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeSh0aWR5Y2Vuc3VzKQ0KbGlicmFyeShzZikNCmxpYnJhcnkoZ2dwbG90MikNCg0KIyBzZXR0aW5ncyBmb3IgdGlkeWNlbnN1cw0Kb3B0aW9ucyh0aWdyaXNfY2xhc3MgPSAic2YiKQ0Kb3B0aW9ucyh0aWdyaXNfdXNlX2NhY2hlID0gVFJVRSkNCiMgY2Vuc3VzX2FwaV9rZXkoIjdkYTEzYzkxMGQ2YjBkMjMxZWZmNzBhMTE2OGI2MzZlZTI4MWVkZDMiLCBpbnN0YWxsPVRSVUUpDQoNCnNldHdkKCJDOi9Vc2Vycy92aXZhbC9Eb2N1bWVudHMvR0VTIDQ4Ni9MYWI2IikNCmBgYA0KDQojIyBHZXQgQ2Vuc3VzIERhdGENClRoZW4gd2UgdXNlIHRoZSBgZ2V0X2Fjc2AgY29tbWFuZCB0byBnZXQgZGF0YSBmcm9tIHRoZSBDZW5zdXMgc3BlY2lmeWluZyB3aGljaCBwb3B1bGF0aW9uIGFuZCBob3VzaW5nIHZhcmlhYmxlcyB3ZSB3YW50IHRvIGdldC4gSGVyZSdzIHRoZSBEYXRhIERpY3Rpb25hcnkgZnJvbSBTb2NpYWwgRXhwbG9yZXIuIChodHRwczovL3d3dy5zb2NpYWxleHBsb3Jlci5jb20vZGF0YS9BQ1MyMDE5XzV5ci9tZXRhZGF0YS8/ZHM9QUNTMTlfNXlyKQ0KDQpgYGB7ciBkb3dubG9hZCBjZW5zdXN9DQojIFRoaXMgZ2V0cyBldmVuaW5nIGFuZCBhZnRlcm5vb24gd29ya2VycyBpbiAyMDE5DQpibW9yZV9ob3VzZWhvbGRfMjAxOSA8LSBnZXRfYWNzKGdlb2dyYXBoeSA9ICJ0cmFjdCIsIA0KICAgICB2YXJpYWJsZXMgPSBjKCJ0b3RhbF9ob3VzZWhvbGQxOSIgPSAiQjExMDAxXzAwMSIsICMgVG90YWwgaG91c2Vob2xkcw0KICAgICAgICAgICAgICAgICAgICJob3VzZV9hbG9uZTE5IiA9ICJCMTEwMDFfMDA4IiwgIyBIb3VzZWhvbGRlciBMaXZpbmcgYWxvbmUNCiAgICAgICAgICAgICAgICAgICAibWVkX2hoX2luYzE5IiA9ICJCMTkwMTNfMDAxIiAjIE1lZGlhbiBob3VzZWhvbGQgaW5jb21lDQogICAgICAgICAgICAgICAgICAgKSwgDQogICAgIHllYXIgPSAyMDE5LA0KICAgICBzdXJ2ZXkgPSAiYWNzNSIsDQogICAgIHN0YXRlID0gYygyNCksIA0KICAgICBjb3VudHkgPSBjKDUxMCw1KSwgDQogICAgIGdlb21ldHJ5ID0gVFJVRSwgIyBkb3dubG9hZCB0aGUgc2hhcGVmaWxlIHdpdGggdGhlIGRhdGENCiAgICAgb3V0cHV0ID0gIndpZGUiKSAjIG5lZWQgdGhpcw0KDQojIFRoaXMgZ2V0cyBldmVuaW5nIGFuZCBhZnRlcm5vb24gd29ya2VycyBpbiAyMDE0DQpibW9yZV9ob3VzZWhvbGRfMjAxNCA8LSBnZXRfYWNzKGdlb2dyYXBoeSA9ICJ0cmFjdCIsIA0KICAgICB2YXJpYWJsZXMgPSBjKCJ0b3RhbF9ob3VzZWhvbGQxNCIgPSAiQjExMDAxXzAwMSIsICMgVG90YWwgaG91c2Vob2xkcw0KICAgICAgICAgICAgICAgICAgICJob3VzZV9hbG9uZTE0IiA9ICJCMTEwMDFfMDA4IiwgIyBIb3VzZWhvbGRlciBMaXZpbmcgYWxvbmUNCiAgICAgICAgICAgICAgICAgICAibWVkX2hoX2luYzE0IiA9ICJCMTkwMTNfMDAxIiAjIE1lZGlhbiBob3VzZWhvbGQgaW5jb21lDQogICAgICAgICAgICAgICAgICAgKSwgDQogICAgIHllYXIgPSAyMDE0LA0KICAgICBzdXJ2ZXkgPSAiYWNzNSIsDQogICAgIHN0YXRlID0gYygyNCksIA0KICAgICBjb3VudHkgPSBjKDUxMCw1KSwgDQogICAgIGdlb21ldHJ5ID0gRkFMU0UsICMgZG93bmxvYWQgdGhlIHNoYXBlZmlsZSB3aXRoIHRoZSBkYXRhDQogICAgIG91dHB1dCA9ICJ3aWRlIikgIyBuZWVkIHRoaXMNCg0KIyBXZSBub3cgaGF2ZSByYXcgZGF0YSB0aGF0IHdlIHNob3VsZCB3cml0ZSBvdXQgdG8gZmlsZQ0KIyBCZWNhdXNlIHdlJ3JlIGdvaW5nIHRvIHNhdmUgaW4gZ2VvanNvbiwgd2UncmUgZ29pbmcgdG8gdHJhbnNmb3JtIHRvIDM4NTcNCnN0X3dyaXRlKHN0X3RyYW5zZm9ybShibW9yZV9ob3VzZWhvbGRfMjAxOSwgMzg1NyksICJibW9yZV9ob3VzZWhvbGRfMjAxOS5nZW9qc29uIikNCg0Kc3Rfd3JpdGUoYm1vcmVfaG91c2Vob2xkXzIwMTQsICJibW9yZV9ob3VzZWhvbGRfMjAxNC5jc3YiKSAjIGdlb21ldHJ5IGlzIGZhbHNlIQ0KDQpgYGANCg0KIyMgTWVyZ2UgdGhlIHR3byB0aW1lIHBlcmlvZHMNCmBgYHtyIG1lcmdlYW5kZGlmZn0NCmJtb3JlX2hvdXNlaG9sZCA8LSBsZWZ0X2pvaW4oYm1vcmVfaG91c2Vob2xkXzIwMTksIGJtb3JlX2hvdXNlaG9sZF8yMDE0LCANCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJ5PSJHRU9JRCIpDQoNCiMgQ29tcHV0ZSBkaWZmZXJlbmNlcyBpbiBob3VzZWhvbGRzDQpibW9yZV9ob3VzZWhvbGQkaG91c2VfZGlmZiA8LSBibW9yZV9ob3VzZWhvbGQkaG91c2VfYWxvbmUxOUUgLQ0KICAgICAgICBibW9yZV9ob3VzZWhvbGQkaG91c2VfYWxvbmUxNEUNCg0KIyBDb21wdXRlIGRpZmZlcmVuY2UgaW4gbWVkaWFuIGhvdXNlaG9sZCBpbmNvbWUNCmJtb3JlX2hvdXNlaG9sZCRtaGhpX2RpZmYgPC0gYm1vcmVfaG91c2Vob2xkJG1lZF9oaF9pbmMxOUUgLQ0KICAgICAgICBibW9yZV9ob3VzZWhvbGQkbWVkX2hoX2luYzE0RQ0KDQoNCmJtb3JlX2hvdXNlaG9sZCA8LSBzdF90cmFuc2Zvcm0oYm1vcmVfaG91c2Vob2xkLCAzODU3KSAjIHJlcHJvamVjdCBpbnRvIHdlYi1tZXJjYXRvciBiZWNhdXNlIEdvb2dsZSBvd25zIGV2ZXJ5dGhpbmcgICAgICAgIA0KYGBgDQoNCg0KIyMgV3JpdGUgdG8gZmlsZQ0KSGVyZSBJJ20gZ29pbmcgdG8gdXNlIGdncGxvdC4gTm93IHRoYXQgSSBzcGVjaWZpZWQgdGhlIENSUyAocHJvamVjdGlvbikNCmBgYHtyIHdyaXRlZmlsZX0NCnN0X3dyaXRlKGJtb3JlX2hvdXNlaG9sZCwgImJtb3JlX2hvdXNlaG9sZF9kaWZmLmdlb2pzb24iKQ0KYGBgDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlIgTm90ZWJvb2siDQpzdWJ0aXRsZTogQ2Vuc3VzIERpZmZlcmVuY2VzIEdFUyA0ODYNCm91dHB1dDogaHRtbF9ub3RlYm9vaw0KaHRtbF9kb2N1bWVudDoNCiAgICAgICAgICAgICAgICBrZWVwX21kOiB0cnVlDQphdXRob3I6IFRpbSBQYXR0ZXJzb24gKHRpbXBhdHQxQHVtYmMuZWR1KQ0KZGF0ZTogICAyMDIxLzA0LzAxDQotLS0NCg0KIyBDZW5zdXMgRGVtbw0KVGhpcyBmaWxlIA0KDQojIyBTZXR1cA0KRmlyc3QsIHdlIGxvYWQgaW4gdGhlIHZhcmlvdXMgcGFja2FnZXMgd2UgbmVlZC4gSSd2ZSBhZGRlZCBgbWFwdmlld2AgaGVyZSBpbnN0ZWFkIG9mIGBnZ3Bsb3RgIGJlY2F1c2UgaXQgYWxsb3dzIGZvciBlYXNpZXIgaW50ZXJhY3Rpb25zIHdpdGggYHNmYC4gVGhpcyBjaHVuayBvZiBjb2RlIGFsc28gc2V0cyBzb21lIGRlZmF1bHRzIGZvciB0aGUgYHRpZHljZW5zdXNgIHBhY2thZ2UuIFRvIHVzZSB0aGlzIHNjcmlwdCwgeW91J2xsIG5lZWQgdG8gc2lnbiB1cCBmb3IgeW91ciBvd24gY2Vuc3VzIGFwaSBrZXkuIChodHRwczovL2FwaS5jZW5zdXMuZ292L2RhdGEva2V5X3NpZ251cC5odG1sKQ0KDQpgYGB7ciBzZXR1cH0NCiMgcGFja2FnZXMNCmxpYnJhcnkodGlkeXZlcnNlKQ0KbGlicmFyeSh0aWR5Y2Vuc3VzKQ0KbGlicmFyeShzZikNCmxpYnJhcnkoZ2dwbG90MikNCg0KIyBzZXR0aW5ncyBmb3IgdGlkeWNlbnN1cw0Kb3B0aW9ucyh0aWdyaXNfY2xhc3MgPSAic2YiKQ0Kb3B0aW9ucyh0aWdyaXNfdXNlX2NhY2hlID0gVFJVRSkNCiMgY2Vuc3VzX2FwaV9rZXkoIjdkYTEzYzkxMGQ2YjBkMjMxZWZmNzBhMTE2OGI2MzZlZTI4MWVkZDMiLCBpbnN0YWxsPVRSVUUpDQoNCnNldHdkKCJDOi9Vc2Vycy92aXZhbC9Eb2N1bWVudHMvR0VTIDQ4Ni9MYWI2IikNCmBgYA0KDQojIyBHZXQgQ2Vuc3VzIERhdGENClRoZW4gd2UgdXNlIHRoZSBgZ2V0X2Fjc2AgY29tbWFuZCB0byBnZXQgZGF0YSBmcm9tIHRoZSBDZW5zdXMgc3BlY2lmeWluZyB3aGljaCBwb3B1bGF0aW9uIGFuZCBob3VzaW5nIHZhcmlhYmxlcyB3ZSB3YW50IHRvIGdldC4gSGVyZSdzIHRoZSBEYXRhIERpY3Rpb25hcnkgZnJvbSBTb2NpYWwgRXhwbG9yZXIuIChodHRwczovL3d3dy5zb2NpYWxleHBsb3Jlci5jb20vZGF0YS9BQ1MyMDE5XzV5ci9tZXRhZGF0YS8/ZHM9QUNTMTlfNXlyKQ0KDQpgYGB7ciBkb3dubG9hZCBjZW5zdXN9DQojIFRoaXMgZ2V0cyBUb3RhbCBIb3VzZWhvbGRzLCBMaXZpbmcgQWxvbmUsIGFuZCBNSEhJIGluIDIwMTkNCmJtb3JlX2hvdXNlaG9sZF8yMDE5IDwtIGdldF9hY3MoZ2VvZ3JhcGh5ID0gInRyYWN0IiwgDQogICAgIHZhcmlhYmxlcyA9IGMoInRvdGFsX2hvdXNlaG9sZDE5IiA9ICJCMTEwMDFfMDAxIiwgIyBUb3RhbCBob3VzZWhvbGRzDQogICAgICAgICAgICAgICAgICAgImhvdXNlX2Fsb25lMTkiID0gIkIxMTAwMV8wMDgiLCAjIEhvdXNlaG9sZGVyIExpdmluZyBhbG9uZQ0KICAgICAgICAgICAgICAgICAgICJtZWRfaGhfaW5jMTkiID0gIkIxOTAxM18wMDEiICMgTWVkaWFuIGhvdXNlaG9sZCBpbmNvbWUNCiAgICAgICAgICAgICAgICAgICApLCANCiAgICAgeWVhciA9IDIwMTksDQogICAgIHN1cnZleSA9ICJhY3M1IiwNCiAgICAgc3RhdGUgPSBjKDI0KSwgDQogICAgIGNvdW50eSA9IGMoNTEwLDUpLCANCiAgICAgZ2VvbWV0cnkgPSBUUlVFLCAjIGRvd25sb2FkIHRoZSBzaGFwZWZpbGUgd2l0aCB0aGUgZGF0YQ0KICAgICBvdXRwdXQgPSAid2lkZSIpICMgbmVlZCB0aGlzDQoNCiMgVGhpcyBnZXRzIFRvdGFsIEhvdXNlaG9sZHMsIExpdmluZyBBbG9uZSwgYW5kIE1ISEkgaW4gMjAxNA0KYm1vcmVfaG91c2Vob2xkXzIwMTQgPC0gZ2V0X2FjcyhnZW9ncmFwaHkgPSAidHJhY3QiLCANCiAgICAgdmFyaWFibGVzID0gYygidG90YWxfaG91c2Vob2xkMTQiID0gIkIxMTAwMV8wMDEiLCAjIFRvdGFsIGhvdXNlaG9sZHMNCiAgICAgICAgICAgICAgICAgICAiaG91c2VfYWxvbmUxNCIgPSAiQjExMDAxXzAwOCIsICMgSG91c2Vob2xkZXIgTGl2aW5nIGFsb25lDQogICAgICAgICAgICAgICAgICAgIm1lZF9oaF9pbmMxNCIgPSAiQjE5MDEzXzAwMSIgIyBNZWRpYW4gaG91c2Vob2xkIGluY29tZQ0KICAgICAgICAgICAgICAgICAgICksIA0KICAgICB5ZWFyID0gMjAxNCwNCiAgICAgc3VydmV5ID0gImFjczUiLA0KICAgICBzdGF0ZSA9IGMoMjQpLCANCiAgICAgY291bnR5ID0gYyg1MTAsNSksIA0KICAgICBnZW9tZXRyeSA9IEZBTFNFLCAjIGRvd25sb2FkIHRoZSBzaGFwZWZpbGUgd2l0aCB0aGUgZGF0YQ0KICAgICBvdXRwdXQgPSAid2lkZSIpICMgbmVlZCB0aGlzDQoNCiMgV2Ugbm93IGhhdmUgcmF3IGRhdGEgdGhhdCB3ZSBzaG91bGQgd3JpdGUgb3V0IHRvIGZpbGUNCiMgQmVjYXVzZSB3ZSdyZSBnb2luZyB0byBzYXZlIGluIGdlb2pzb24sIHdlJ3JlIGdvaW5nIHRvIHRyYW5zZm9ybSB0byAzODU3DQpzdF93cml0ZShzdF90cmFuc2Zvcm0oYm1vcmVfaG91c2Vob2xkXzIwMTksIDM4NTcpLCAiYm1vcmVfaG91c2Vob2xkc18yMDE5MS5nZW9qc29uIikNCg0Kc3Rfd3JpdGUoYm1vcmVfaG91c2Vob2xkXzIwMTQsICJibW9yZV9ob3VzZWhvbGRzXzIwMTQuY3N2IikgIyBnZW9tZXRyeSBpcyBmYWxzZSENCg0KYGBgDQoNCiMjIE1lcmdlIHRoZSB0d28gdGltZSBwZXJpb2RzDQpgYGB7ciBtZXJnZWFuZGRpZmZ9DQpibW9yZV9ob3VzZWhvbGQgPC0gbGVmdF9qb2luKGJtb3JlX2hvdXNlaG9sZF8yMDE5LCBibW9yZV9ob3VzZWhvbGRfMjAxNCwgDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBieT0iR0VPSUQiKQ0KDQojIENvbXB1dGUgZGlmZmVyZW5jZXMgaW4gaG91c2Vob2xkcw0KYm1vcmVfaG91c2Vob2xkJGhvdXNlX2RpZmYgPC0gYm1vcmVfaG91c2Vob2xkJGhvdXNlX2Fsb25lMTlFIC0NCiAgICAgICAgYm1vcmVfaG91c2Vob2xkJGhvdXNlX2Fsb25lMTRFDQoNCiMgQ29tcHV0ZSBkaWZmZXJlbmNlIGluIG1lZGlhbiBob3VzZWhvbGQgaW5jb21lDQpibW9yZV9ob3VzZWhvbGQkbWhoaV9kaWZmIDwtIGJtb3JlX2hvdXNlaG9sZCRtZWRfaGhfaW5jMTlFIC0NCiAgICAgICAgYm1vcmVfaG91c2Vob2xkJG1lZF9oaF9pbmMxNEUNCg0KDQpibW9yZV9ob3VzZWhvbGQgPC0gc3RfdHJhbnNmb3JtKGJtb3JlX2hvdXNlaG9sZCwgMzg1NykgIyByZXByb2plY3QgaW50byB3ZWItbWVyY2F0b3IgYmVjYXVzZSBHb29nbGUgb3ducyBldmVyeXRoaW5nICAgICAgICANCmBgYA0KDQoNCiMjIFdyaXRlIHRvIGZpbGUNCkhlcmUgSSdtIGdvaW5nIHRvIHVzZSBnZ3Bsb3QuIE5vdyB0aGF0IEkgc3BlY2lmaWVkIHRoZSBDUlMgKHByb2plY3Rpb24pDQpgYGB7ciB3cml0ZWZpbGV9DQpzdF93cml0ZShibW9yZV9ob3VzZWhvbGQsICJibW9yZV9ob3VzZWhvbGRzX2RpZmYuZ2VvanNvbiIpDQpgYGANCg0K</div>
 
 
 

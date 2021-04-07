@@ -1,8 +1,8 @@
 ---
 title: "R Notebook"
 subtitle: Census Differences GES 486
-output: 
-        html_document:
+output: html_notebook
+html_document:
                 keep_md: true
 author: Tim Patterson (timpatt1@umbc.edu)
 date:   2021/04/01
@@ -33,7 +33,7 @@ setwd("C:/Users/vival/Documents/GES 486/Lab6")
 Then we use the `get_acs` command to get data from the Census specifying which population and housing variables we want to get. Here's the Data Dictionary from Social Explorer. (https://www.socialexplorer.com/data/ACS2019_5yr/metadata/?ds=ACS19_5yr)
 
 ```{r download census}
-# This gets evening and afternoon workers in 2019
+# This gets Total Households, Living Alone, and MHHI in 2019
 bmore_household_2019 <- get_acs(geography = "tract", 
      variables = c("total_household19" = "B11001_001", # Total households
                    "house_alone19" = "B11001_008", # Householder Living alone
@@ -46,7 +46,7 @@ bmore_household_2019 <- get_acs(geography = "tract",
      geometry = TRUE, # download the shapefile with the data
      output = "wide") # need this
 
-# This gets evening and afternoon workers in 2014
+# This gets Total Households, Living Alone, and MHHI in 2014
 bmore_household_2014 <- get_acs(geography = "tract", 
      variables = c("total_household14" = "B11001_001", # Total households
                    "house_alone14" = "B11001_008", # Householder Living alone
@@ -61,9 +61,9 @@ bmore_household_2014 <- get_acs(geography = "tract",
 
 # We now have raw data that we should write out to file
 # Because we're going to save in geojson, we're going to transform to 3857
-st_write(st_transform(bmore_household_2019, 3857), "bmore_household_2019.geojson")
+st_write(st_transform(bmore_household_2019, 3857), "bmore_households_20191.geojson")
 
-st_write(bmore_household_2014, "bmore_household_2014.csv") # geometry is false!
+st_write(bmore_household_2014, "bmore_households_2014.csv") # geometry is false!
 
 ```
 
@@ -88,6 +88,6 @@ bmore_household <- st_transform(bmore_household, 3857) # reproject into web-merc
 ## Write to file
 Here I'm going to use ggplot. Now that I specified the CRS (projection)
 ```{r writefile}
-st_write(bmore_household, "bmore_household_diff.geojson")
+st_write(bmore_household, "bmore_households_diff.geojson")
 ```
 
