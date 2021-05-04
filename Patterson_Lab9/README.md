@@ -225,7 +225,9 @@ img1_path1 <- "C:/Users/vival/Documents/GES 486/Lab8/Patterson_AAcounty.PNG"
 img1 <- readPNG(img1_path1, native = TRUE, info = TRUE)
 attr(img1, "info")
 include_graphics(img1_path1)
+
 ```
+[Patterson_Lab8]()
 
 **10. Use qgis2web and put a link here to your github site with the webmap of your bivariate map. (3 points)**
 
