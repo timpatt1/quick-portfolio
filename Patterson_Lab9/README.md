@@ -227,7 +227,7 @@ attr(img1, "info")
 include_graphics(img1_path1)
 
 ```
-[Patterson_Lab8]()
+[Patterson_Lab8](https://github.com/timpatt1/timpatt1.github.io/blob/master/Patterson_Lab9/bin/Patterson_AAcounty.PNG)
 
 **10. Use qgis2web and put a link here to your github site with the webmap of your bivariate map. (3 points)**
 
